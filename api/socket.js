@@ -1,6 +1,16 @@
 const { Server } = require('socket.io');
 
-let io;
+const io = new Server(httpServer, {
+  cors: {
+    origin: [
+      "https://socket-mic-check.vercel.app",
+      "https://socket-mic-check-git-main-yourusername.vercel.app",
+      "http://localhost:3000" // for local testing
+    ],
+    methods: ["GET", "POST"]
+  },
+  path: "/socket.io/" // Must match client
+});
 let httpServer;
 
 // Track connected users

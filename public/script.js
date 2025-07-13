@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const socket = io();
+    const socket = io('https://socket-mic-check.vercel.app', {
+  transports: ['websocket'], // Force WebSocket transport
+  path: '/socket.io/' // Match your Vercel route
+});
     let currentUser = null;
     
     // Get all boxes
