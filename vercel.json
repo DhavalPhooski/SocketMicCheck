@@ -6,15 +6,14 @@
   ],
   "routes": [
     {
-      "src": "/socket.io/(.*)",
+      "src": "/socket.io/.*",
       "dest": "/api/socket.js",
       "headers": {
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
+        "Access-Control-Allow-Credentials": "true"
       }
     },
-    {
-      "src": "/(.*)",
-      "dest": "/public/$1"
-    }
+    { "src": "/(.*)", "dest": "/public/$1" }
   ]
 }
